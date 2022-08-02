@@ -1,12 +1,101 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="styles/basic-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">    
     <title>
         Lectures Finder
     </title>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <script src="styles/basic-jscript.js"></script>
+    <!--
+        Developer time tracker : 4H 30M
+    -->
+
+    <div class="main-1">
+        <br><br>
+    <label class="heading">Lectures Finder V1.0</label>
+    <label class="para">Simple and easy way to find out on-going lectures.</label>
+        <br>
+    <label class="para">Select the module you're looking for and click the "Check" button to see all on-going lectures during the week.</label>
+        <br>
+    
+    <div>
+    <label class="type-1">Select module : </label>
+    <select class="select-1" id="module-selector">
+        <option value="DMS">DMS module [IT2040]</option>
+        <option value="OOP">OOP module [IT2030]</option>
+        <option value="OSSA">OSSA module [IT2060]</option>
+        <option value="CN">CN module [IT2050]</option>
+        <option value="SE">SE module [IT2020]</option>
+    </select><br><br>
+    </div>
+    </div>
+
+    <div class="main-2">
+        <button id="cnfm-btn" class="button-1" onclick="checkFunction()">Check</button>
+    </div>
+    
+    <br><br>
+    
+    <!--
+    <div class="main-1">
+    <div id="results" class="rslt-1">
+    </div>
+    </div>
+    -->
+
+    <div>
+    <script>
+        var selectedModule;
+        var clickCount = 0;
+        //var dms_count = 5;
+
+        const dmsArr = ["MON  |  09:30am - 11:30am  |  for Group WD.IT.06", 
+                        "MON  |  10:30am - 12:30pm  |  for Group WD.IT.07", 
+                        "MON  |  11:30am - 01:30pm  |  for Group WD.IT.04", 
+                        "MON  |  03:30pm - 05:30pm  |  for Group WD.IT.03", 
+                        "MON  |  03:30pm - 05:30pm  |  for Group WD.IT.10", 
+                        "WED  |  11:30am - 01:30pm  |  for Group WD.IT.01",
+                        "WED  |  11:30am - 01:30pm  |  for Group WD.IT.11",
+                        "WED  |  03:30pm - 05:30pm  |  for Group WD.IT.08",
+                        "FRI  |  08:30am - 10:30am  |  for Group WD.IT.05",
+                        "FRI  |  10:30am - 12:30pm  |  for Group WD.IT.09",
+                        "FRI  |  02:30pm - 04:30pm  |  for Group WD.IT.02"];
+
+        function checkFunction()
+        {
+            clickCount++;
+            //alert("hello boza");
+            //selectedModule = document.getElementById("module-selector").value;
+            //alert("You selected " + selectedModule);
+
+            selectedModule = document.getElementById("module-selector").value;
+            if(clickCount==1)
+            {
+                if(selectedModule=="DMS")
+                {
+                    //alert("You selected " + selectedModule);
+                    document.getElementById("cnfm-btn").innerHTML = "Reset";
+
+                    for(let i=0; i<dmsArr.length; i++)
+                    {
+                        //document.getElementById("new").innerHTML = "oi oi";
+                        //document.getElementById("new2").writeln("hello bitches <br>");
+                        const para = document.createElement("p");
+                        para.innerText = dmsArr[i];
+                        document.body.appendChild(para);
+                    }
+                }
+            }
+            else
+            {
+                location.reload();
+            }
+            
+        }
+    </script>
+    </div>
 </body>
 </html>

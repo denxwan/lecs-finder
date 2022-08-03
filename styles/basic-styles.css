@@ -20,6 +20,19 @@ body {
     width: 70%;
 }
 
+.credits {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: lightgrey;
+    font-weight: 400;
+    padding: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: limegreen;
+}
+
 .type-1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
@@ -48,8 +61,16 @@ body {
     text-align: center;
 }
 
+.select-2 {
+    padding: 10px;
+    border-radius: 30px;
+    text-align: center;
+    width: 180px;
+}
+
 .button-1 {
     background-color:limegreen;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 20px;
     padding: 10px;
@@ -58,6 +79,22 @@ body {
     width: 200px;
     border-color: transparent;
     cursor: pointer;
+}
+
+.button-2 {
+    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 30px;
+    text-align: center;
+    width: 200px;
+    border-color: limegreen;
+    cursor: pointer;
+    color: limegreen;
+    border-width: 3px;
+    border-style: solid;
 }
 
 .rslt-1 {

@@ -10,20 +10,28 @@
 </head>
 <body>
     <!--
-        Developer time tracker : 4H 30M
+        Developer time tracker : 10H  @ 9:46pm
     -->
 
     <div class="main-1">
         <br><br>
     <label class="heading">Lectures Finder V1.0</label>
     <label class="para">Simple and easy way to find out on-going lectures.</label>
-        <br>
-    <label class="para">Select the module you're looking for and click the "Check" button to see all on-going lectures during the week.</label>
+        
+        <div class="credits">
+            Created by <a href="https://github.com/denxwan">denxwan</a> |
+            <a href="https://github.com/denxwan/lecs-finder">Github</a> |
+            <a href="https://forms.gle/rnxH7VC5DY52hxSK9">Feedback</a> |
+            <a href="https://forms.gle/YyfPEGSXnXepkfqU8">Report Bugs</a> 
+        </div>
+        
+
+    <label class="para">Select the module with the type of a session you're looking for and click the "Check" button to see all on-going lectures during the week.</label>
         <br>
     
     <div>
     <label class="type-1">Select module : </label>
-    <select class="select-1" id="module-selector">
+    <select class="select-1" id="module-selector" required>
         <option value="DMS">DMS module [IT2040]</option>
         <option value="OOP">OOP module [IT2030]</option>
         <option value="OSSA">OSSA module [IT2060]</option>
@@ -31,6 +39,15 @@
         <option value="SE">SE module [IT2020]</option>
     </select><br><br>
     </div>
+
+    <div>
+        <label class="type-1">Select session : </label>
+        <select class="select-2" id="module-type-selector" required>
+            <option value="LEC">Lectures</option>
+            <option value="TUT">Tutorials</option>
+            <option value="LAB">Labs</option>
+        </select><br><br><br>
+        </div>
     </div>
 
     <div class="main-2">
@@ -48,11 +65,11 @@
 
     <div>
     <script>
-        var selectedModule;
+        var selectedModule, selectedSession;
         var clickCount = 0;
         //var dms_count = 5;
 
-        const dmsArr = ["MON  |  09:30am - 11:30am  |  for Group WD.IT.06", 
+        const dmsLecArr = ["MON  |  09:30am - 11:30am  |  for Group WD.IT.06", 
                         "MON  |  10:30am - 12:30pm  |  for Group WD.IT.07", 
                         "MON  |  11:30am - 01:30pm  |  for Group WD.IT.04", 
                         "MON  |  03:30pm - 05:30pm  |  for Group WD.IT.03", 
@@ -64,6 +81,87 @@
                         "FRI  |  10:30am - 12:30pm  |  for Group WD.IT.09",
                         "FRI  |  02:30pm - 04:30pm  |  for Group WD.IT.02"];
 
+        const dmsTuteArr = ["MON  |  08:30am - 09:30am  |  for Group WD.IT.04", 
+                        "MON  |  08:30am - 09:30am  |  for Group WD.IT.08", 
+                        "MON  |  12:30pm - 01:30pm  |  for Group WD.IT.03",
+                        "WED  |  08:30am - 09:30am  |  for Group WD.IT.07", 
+                        "WED  |  09:30am - 10:30am  |  for Group WD.IT.09",
+                        "WED  |  12:30pm - 01:30pm  |  for Group WD.IT.10",
+                        "FRI  |  12:30pm - 01:30pm  |  for Group WD.IT.02",
+                        "FRI  |  02:30pm - 03:30pm  |  for Group WD.IT.05", 
+                        "FRI  |  03:30pm - 04:30pm  |  for Group WD.IT.01",
+                        "FRI  |  04:30pm - 05:30pm  |  for Group WD.IT.06",
+                        "FRI  |  04:30pm - 05:30pm  |  for Group WD.IT.11"];
+
+        const dmsLabArr = ["MON  |  08:30am - 10:30am  |  for Group WD.IT.09.02",//
+                        "MON  |  08:30am - 10:30am  |  for Group WD.IT.10.01",//
+                        "MON  |  08:30am - 10:30am  |  for Group WD.IT.11.02",//
+                        "MON  |  11:30am - 01:30pm  |  for Group WD.IT.06",//
+                        "MON  |  11:30am - 01:30pm  |  for Group WD.IT.08.02",//
+                        "MON  |  03:30pm - 05:30pm  |  for Group WD.IT.05.02",//
+                        "MON  |  03:30pm - 05:30pm  |  for Group WD.IT.08.01",//
+                        "WED  |  08:30am - 10:30am  |  for Group WD.IT.04.02",//
+                        "WED  |  09:30am - 11:30am  |  for Group WD.IT.03.01",//
+                        "WED  |  09:30am - 11:30am  |  for Group WD.IT.10.02",//
+                        "WED  |  09:30am - 11:30am  |  for Group WD.IT.11.01",//
+                        "WED  |  10:30am - 12:30am  |  for Group WD.IT.07.01",//
+                        "WED  |  10:30am - 12:30pm  |  for Group WD.IT.09.01",//
+                        "WED  |  11:30am - 01:30pm  |  for Group WD.IT.02", //
+                        "WED  |  11:30am - 01:30pm  |  for Group WD.IT.07.02",//
+                        "WED  |  03:30pm - 05:30pm  |  for Group WD.IT.03.02", //
+                        "WED  |  03:30pm - 05:30pm  |  for Group WD.IT.05.01",//
+                        "FRI  |  08:30am - 10:30am  |  for Group WD.IT.01", //
+                        "FRI  |  03:30pm - 05:30pm  |  for Group WD.IT.04.01"];  //               
+
+        const oopLecArr = ["MON  |  08:30am - 11:30pm  |  for Group WD.IT.03", 
+                        "MON  |  10:30am - 01:30pm  |  for Group WD.IT.09",
+                        "MON  |  10:30am - 01:30pm  |  for Group WD.IT.10",
+                        "MON  |  02:30pm - 05:30pm  |  for Group WD.IT.02", 
+                        "MON  |  02:30pm - 05:30pm  |  for Group WD.IT.11",
+                        "WED  |  09:30am - 12:30pm  |  for Group WD.IT.05", 
+                        "WED  |  10:30am - 01:30pm  |  for Group WD.IT.06",
+                        "WED  |  10:30am - 01:30pm  |  for Group WD.IT.08",
+                        "WED  |  02:30pm - 05:30pm  |  for Group WD.IT.01", 
+                        "FRI  |  08:30am - 11:30am  |  for Group WD.IT.04", 
+                        "FRI  |  09:30am - 12:30pm  |  for Group WD.IT.07"];
+        
+        const oopLabArr = ["MON  |  08:30am - 10:30am  |  for Group WD.IT.07.02", 
+                        "MON  |  08:30am - 10:30am  |  for Group WD.IT.10.02",
+                        "MON  |  08:30am - 10:30am  |  for Group WD.IT.11.01",
+                        "MON  |  09:30am - 11:30am  |  for Group WD.IT.01.01", 
+                        "MON  |  10:30am - 12:30am  |  for Group WD.IT.11.02",
+                        "MON  |  11:30am - 01:30pm  |  for Group WD.IT.08.01",
+                        "MON  |  03:30pm - 05:30pm  |  for Group WD.IT.04.02", 
+                        "MON  |  03:30pm - 05:30pm  |  for Group WD.IT.05.01",
+                        "MON  |  03:30pm - 05:30pm  |  for Group WD.IT.06.01",
+                        "WED  |  08:30am - 10:30pm  |  for Group WD.IT.04.01", 
+                        "WED  |  08:30am - 10:30am  |  for Group WD.IT.08.02",
+                        "WED  |  08:30am - 10:30am  |  for Group WD.IT.10.01",
+                        "WED  |  03:30pm - 05:30pm  |  for Group WD.IT.02.01",
+                        "WED  |  03:30pm - 04:30pm  |  for Group WD.IT.07.01",
+                        "FRI  |  08:30am - 10:30am  |  for Group WD.IT.02.02", 
+                        "FRI  |  08:30am - 10:30am  |  for Group WD.IT.03.02", 
+                        "FRI  |  08:30am - 10:30am  |  for Group WD.IT.06.02",
+                        "FRI  |  08:30am - 10:30am  |  for Group WD.IT.09.02",
+                        "FRI  |  11:30am - 01:30pm  |  for Group WD.IT.01.02",
+                        "FRI  |  03:30pm - 05:30pm  |  for Group WD.IT.03.01",
+                        "FRI  |  03:30pm - 05:30pm  |  for Group WD.IT.05.02",
+                        "FRI  |  03:30pm - 05:30pm  |  for Group WD.IT.09.01"]; 
+
+        /*
+        const dmsTuteArr = ["FRI  |  03:30pm - 04:30pm  |  for Group WD.IT.01", 
+                        "FRI  |  12:30pm - 01:30pm  |  for Group WD.IT.02", 
+                        "MON  |  12:30pm - 01:30pm  |  for Group WD.IT.03", 
+                        "MON  |  08:30am - 09:30am  |  for Group WD.IT.04", 
+                        "FRI  |  02:30pm - 03:30pm  |  for Group WD.IT.05", 
+                        "FRI  |  04:30pm - 05:30pm  |  for Group WD.IT.06",
+                        "WED  |  08:30am - 09:30am  |  for Group WD.IT.07",
+                        "MON  |  08:30am - 09:30am  |  for Group WD.IT.08",
+                        "WED  |  09:30am - 10:30am  |  for Group WD.IT.09",
+                        "WED  |  12:30pm - 01:30pm  |  for Group WD.IT.10",
+                        "FRI  |  04:30pm - 05:30pm  |  for Group WD.IT.11"];
+        */
+
         function checkFunction()
         {
             clickCount++;
@@ -72,19 +170,94 @@
             //alert("You selected " + selectedModule);
 
             selectedModule = document.getElementById("module-selector").value;
+            selectedSession = document.getElementById("module-type-selector").value;
+
             if(clickCount==1)
             {
-                if(selectedModule=="DMS")
+                if(selectedModule=="DMS" && selectedSession=="LEC")
                 {
                     //alert("You selected " + selectedModule);
                     document.getElementById("cnfm-btn").innerHTML = "Reset";
+                    document.getElementById("cnfm-btn").className = "button-2";
+                    document.getElementById("module-selector").disabled = true;
+                    document.getElementById("module-type-selector").disabled = true;
 
-                    for(let i=0; i<dmsArr.length; i++)
+                    for(let i=0; i<dmsLecArr.length; i++)
                     {
                         //document.getElementById("new").innerHTML = "oi oi";
                         //document.getElementById("new2").writeln("hello bitches <br>");
                         const para = document.createElement("p");
-                        para.innerText = dmsArr[i];
+                        para.innerText = dmsLecArr[i];
+                        document.body.appendChild(para);
+                    }
+                }
+                else if(selectedModule=="DMS" && selectedSession=="TUT")
+                {
+                    document.getElementById("cnfm-btn").innerHTML = "Reset";
+                    document.getElementById("cnfm-btn").className = "button-2";
+                    document.getElementById("module-selector").disabled = true;
+                    document.getElementById("module-type-selector").disabled = true;
+
+                    for(let i=0; i<dmsTuteArr.length; i++)
+                    {
+                        const para = document.createElement("p");
+                        para.innerText = dmsTuteArr[i];
+                        document.body.appendChild(para);
+                    }
+                }
+                else if(selectedModule=="DMS" && selectedSession=="LAB")
+                {
+                    document.getElementById("cnfm-btn").innerHTML = "Reset";
+                    document.getElementById("cnfm-btn").className = "button-2";
+                    document.getElementById("module-selector").disabled = true;
+                    document.getElementById("module-type-selector").disabled = true;
+
+                    for(let i=0; i<dmsLabArr.length; i++)
+                    {
+                        const para = document.createElement("p");
+                        para.innerText = dmsLabArr[i];
+                        document.body.appendChild(para);
+                    }
+                }
+                else if(selectedModule=="OOP" && selectedSession=="LEC")
+                {
+                    document.getElementById("cnfm-btn").innerHTML = "Reset";
+                    document.getElementById("cnfm-btn").className = "button-2";
+                    document.getElementById("module-selector").disabled = true;
+                    document.getElementById("module-type-selector").disabled = true;
+
+                    for(let i=0; i<oopLecArr.length; i++)
+                    {
+                        const para = document.createElement("p");
+                        para.innerText = oopLecArr[i];
+                        document.body.appendChild(para);
+                    }
+                }
+                else if(selectedModule=="OOP" && selectedSession=="TUT")
+                {
+                    document.getElementById("cnfm-btn").innerHTML = "Reset";
+                    document.getElementById("cnfm-btn").className = "button-2";
+                    document.getElementById("module-selector").disabled = true;
+                    document.getElementById("module-type-selector").disabled = true;
+
+                    for(let i=0; i<oopLecArr.length; i++)
+                    {
+                        const para = document.createElement("p");
+                        para.innerText = oopLecArr[i];
+                        document.body.appendChild(para);
+                    }
+                }
+                else if(selectedModule=="OOP" && selectedSession=="LAB")
+                {
+                    document.getElementById("cnfm-btn").innerHTML = "Reset";
+                    document.getElementById("cnfm-btn").className = "button-2";
+                    document.getElementById("module-selector").disabled = true;
+                    document.getElementById("module-type-selector").disabled = true;
+
+                    for(let i=0; i<oopLabArr.length; i++)
+                    {
+                        const para = document.createElement("p");
+                        para.innerText = oopLabArr[i];
                         document.body.appendChild(para);
                     }
                 }

@@ -1,4 +1,4 @@
-# Lectures Finder - *Released Version V1.0 (BETA)*
+# Lectures Finder - *Released Version V1.1 (BETA)*
 
 ## 🙋🏻 Introduction
 
@@ -12,23 +12,30 @@ Hi ! This is a project by someone who hated checking on-going other lecture sess
 
 ## 🧿 Whats new !
 
-### BETA Version is LIVE! Go check it out!
+### V1.1 BETA Version is LIVE! Go check it out!
 
-Project is still in the initial version without being publish to the public. Beta version is live through the **netlify platform**.
+Project is still under development. Beta version is live through the **netlify platform**.
 
-- Fully functional web-app
-- Users can separately select both module and session type to find out exact
-- Both **DMS** and **OOP** module schedules are added with all the session types (LEC, LAB, TUTE)
+- UI is bigger and mobile-friendly
+- Added a "Scroll down" text before the content
+- Fixed the alignment issue with select-boxes
 
 ## ⚙️ Versions
+- **V1.1 - BETA Version [05/08/2022] (Current)**
+- V1.0 - BETA Version [03/08/2022]
 - V1.0 - Initial Version [02/08/2022]
-- **V1.0 - BETA Version [03/08/2022] (Current)**
 
 ## 🔗 Related Links
 - 📝 Feedback Form : https://forms.gle/rnxH7VC5DY52hxSK9 (You can post your suggestions too)
 - 🐞 Report Bugs : https://forms.gle/YyfPEGSXnXepkfqU8
 
-## 🗒️ Release Notes
+## 🗒️ Release Logs
+
+### - V1.1 - BETA Version [05/08/2022]
+
+- UI is bigger and mobile-friendly
+- Added a "Scroll down" text before the content
+- Fixed the alignment issue with select-boxes
 
 ### - V1.0 - BETA Version [03/08/2022]
 

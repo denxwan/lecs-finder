@@ -8,21 +8,21 @@ body {
 
 .heading {
     font-family: 'Montserrat', sans-serif;
-    font-size: 50px;
+    font-size: 80px;
     font-weight: 700;
 }
 
 .para {
     font-family: 'Montserrat', sans-serif;
-    font-size: 23px;
+    font-size: 40px;
     font-style: italic;
     font-weight: 400;
-    width: 70%;
+    width: 85%;
 }
 
 .credits {
     font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
+    font-size: 25px;
     color: lightgrey;
     font-weight: 400;
     padding: 25px;
@@ -35,8 +35,16 @@ a {
 
 .type-1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
+    font-size: 50px;
     font-weight: 500;
+    margin: auto;
+}
+
+.pop-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+    font-weight: 400;
+    color: dimgray;
 }
 
 .main-1 {
@@ -56,27 +64,46 @@ a {
 }
 
 .select-1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
     padding: 10px;
     border-radius: 30px;
     text-align: center;
+    color: black;
+    height: 60px;
+    width: 240px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 .select-2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
     padding: 10px;
     border-radius: 30px;
     text-align: center;
-    width: 180px;
+    color: black;
+    height: 60px;
+    width: 240px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.select-center {
+    display: flex;
 }
 
 .button-1 {
     background-color:limegreen;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 30px;
+    font-size: 35px;
+    padding: 18px;
+    border-radius: 70px;
     text-align: center;
-    width: 200px;
+    width: 300px;
     border-color: transparent;
     cursor: pointer;
 }
@@ -85,11 +112,11 @@ a {
     background-color: transparent;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 30px;
+    font-size: 35px;
+    padding: 18px;
+    border-radius: 70px;
     text-align: center;
-    width: 200px;
+    width: 300px;
     border-color: limegreen;
     cursor: pointer;
     color: limegreen;
@@ -113,12 +140,12 @@ p {
     align-items: center;
     justify-content: center;
     font-weight: 500;
-    font-size: 25px;
+    font-size: 30px;
     
     height: auto;
     padding: 20px;
-    margin-left: 8%;
-    margin-right: 8%;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-bottom: 20px;
     border-radius: 30px;
     border-color: white;

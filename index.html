@@ -10,12 +10,12 @@
 </head>
 <body>
     <!--
-        Developer time tracker : 10H  @ 9:46pm
+        Developer time tracker : 12H  
     -->
 
     <div class="main-1">
-        <br><br>
-    <label class="heading">Lectures Finder V1.0</label>
+        <br><br><br><br>
+    <label class="heading">Lectures Finder <br> V1.1 (BETA) </label> <br>
     <label class="para">Simple and easy way to find out on-going lectures.</label>
         
         <div class="credits">
@@ -29,7 +29,7 @@
     <label class="para">Select the module with the type of a session you're looking for and click the "Check" button to see all on-going lectures during the week.</label>
         <br>
     
-    <div>
+    <div class="select-center">
     <label class="type-1">Select module : </label>
     <select class="select-1" id="module-selector" required>
         <option value="DMS">DMS module [IT2040]</option>
@@ -37,10 +37,12 @@
         <option value="OSSA">OSSA module [IT2060]</option>
         <option value="CN">CN module [IT2050]</option>
         <option value="SE">SE module [IT2020]</option>
-    </select><br><br>
+    </select>
     </div>
 
-    <div>
+    <br>
+
+    <div class="select-center">
         <label class="type-1">Select session : </label>
         <select class="select-2" id="module-type-selector" required>
             <option value="LEC">Lectures</option>
@@ -49,6 +51,7 @@
         </select><br><br><br>
         </div>
     </div>
+    <br><br>
 
     <div class="main-2">
         <button id="cnfm-btn" class="button-1" onclick="checkFunction()">Check</button>
@@ -62,6 +65,8 @@
     </div>
     </div>
     -->
+
+    <label id="ptext" class="pop-text"></label>
 
     <div>
     <script>
@@ -181,6 +186,7 @@
                     document.getElementById("cnfm-btn").className = "button-2";
                     document.getElementById("module-selector").disabled = true;
                     document.getElementById("module-type-selector").disabled = true;
+                    document.getElementById("ptext").innerHTML = "&emsp;&emsp;↓&emsp;&emsp; Scroll down &emsp;&emsp;↓&emsp;&emsp;";
 
                     for(let i=0; i<dmsLecArr.length; i++)
                     {
@@ -197,6 +203,7 @@
                     document.getElementById("cnfm-btn").className = "button-2";
                     document.getElementById("module-selector").disabled = true;
                     document.getElementById("module-type-selector").disabled = true;
+                    document.getElementById("ptext").innerHTML = "&emsp;&emsp;↓&emsp;&emsp; Scroll down &emsp;&emsp;↓&emsp;&emsp;";
 
                     for(let i=0; i<dmsTuteArr.length; i++)
                     {
@@ -211,6 +218,7 @@
                     document.getElementById("cnfm-btn").className = "button-2";
                     document.getElementById("module-selector").disabled = true;
                     document.getElementById("module-type-selector").disabled = true;
+                    document.getElementById("ptext").innerHTML = "&emsp;&emsp;↓&emsp;&emsp; Scroll down &emsp;&emsp;↓&emsp;&emsp;";
 
                     for(let i=0; i<dmsLabArr.length; i++)
                     {
@@ -225,6 +233,7 @@
                     document.getElementById("cnfm-btn").className = "button-2";
                     document.getElementById("module-selector").disabled = true;
                     document.getElementById("module-type-selector").disabled = true;
+                    document.getElementById("ptext").innerHTML = "&emsp;&emsp;↓&emsp;&emsp; Scroll down &emsp;&emsp;↓&emsp;&emsp;";
 
                     for(let i=0; i<oopLecArr.length; i++)
                     {
@@ -239,6 +248,7 @@
                     document.getElementById("cnfm-btn").className = "button-2";
                     document.getElementById("module-selector").disabled = true;
                     document.getElementById("module-type-selector").disabled = true;
+                    document.getElementById("ptext").innerHTML = "&emsp;&emsp;↓&emsp;&emsp; Scroll down &emsp;&emsp;↓&emsp;&emsp;";
 
                     for(let i=0; i<oopLecArr.length; i++)
                     {
@@ -253,6 +263,7 @@
                     document.getElementById("cnfm-btn").className = "button-2";
                     document.getElementById("module-selector").disabled = true;
                     document.getElementById("module-type-selector").disabled = true;
+                    document.getElementById("ptext").innerHTML = "&emsp;&emsp;↓&emsp;&emsp; Scroll down &emsp;&emsp;↓&emsp;&emsp;";
 
                     for(let i=0; i<oopLabArr.length; i++)
                     {

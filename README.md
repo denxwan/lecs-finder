@@ -6,7 +6,7 @@ Hi ! This is a project by someone who hated checking on-going other lecture sess
 
 **Fear not.** Solution is here.
 
-# ✨ https://lectures-finder.netlify.app ✨
+# ✨ https://lecturesfinder.netlify.app ✨
 
 **Lectures Finder** is a web-application which allows users *(Y2S1-2022JUL)* to completely overview the lecture schedule at ease. Especially need to mention that **this is not a timetable app**, it's more like a "easy-way" to see other sessions that you can join if you missed any 😉.
 
